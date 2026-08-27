@@ -1,0 +1,142 @@
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/Poppins-Variable.ttf") format("truetype");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+.galaxy-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  overflow: hidden;
+  background: #030303;
+  color: #f7f7f7;
+  opacity: 1;
+  transition: opacity 0.62s ease;
+  isolation: isolate;
+}
+
+.galaxy-intro.is-leaving {
+  opacity: 0;
+}
+
+.galaxy-intro__scene,
+.galaxy-intro__scene .galaxy-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.galaxy-intro__scene {
+  z-index: 0;
+  pointer-events: none;
+}
+
+.galaxy-intro__copy {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  text-align: center;
+  pointer-events: none;
+  text-shadow: 0 3px 22px rgba(0, 0, 0, 0.9);
+}
+
+.galaxy-intro__eyebrow {
+  margin: 0 0 24px;
+  font: 600 clamp(18px, 2vw, 32px)/1 "Poppins", sans-serif;
+  letter-spacing: 0.18em;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: galaxyIntroRise 0.7s 0.55s ease-out forwards;
+}
+
+.galaxy-intro__copy h1 {
+  margin: 0;
+  font: 600 clamp(34px, 5vw, 86px)/0.98 "Poppins", sans-serif;
+  letter-spacing: -0.045em;
+  white-space: nowrap;
+  opacity: 0;
+  filter: blur(8px);
+  transform: scale(1.025);
+  animation: galaxyIntroTitle 1.05s 1.15s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+
+.galaxy-intro__rule {
+  position: relative;
+  width: min(460px, 44vw);
+  height: 1px;
+  margin-top: 27px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.65), transparent);
+  opacity: 0;
+  transform: scaleX(0);
+  animation: galaxyIntroRule 0.8s 2.25s ease-out forwards;
+}
+
+.galaxy-intro__rule::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 30px;
+  height: 14px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse, rgba(255, 255, 255, 0.82), transparent 68%);
+}
+
+.galaxy-intro__tagline {
+  margin: 27px 0 0;
+  font: 400 clamp(17px, 1.45vw, 24px)/1.45 "Poppins", sans-serif;
+  letter-spacing: 0.02em;
+  color: rgba(247, 247, 245, 0.72);
+  opacity: 0;
+  transform: translateY(10px);
+  animation: galaxyIntroRise 0.85s 2.75s ease-out forwards;
+}
+
+.galaxy-intro audio {
+  display: none;
+}
+
+@keyframes galaxyIntroRise {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes galaxyIntroTitle {
+  to { opacity: 1; filter: blur(0); transform: scale(1); }
+}
+
+@keyframes galaxyIntroRule {
+  to { opacity: 1; transform: scaleX(1); }
+}
+
+@media (max-width: 700px) {
+  .galaxy-intro__eyebrow {
+    margin-bottom: 19px;
+    font-size: 17px;
+  }
+
+  .galaxy-intro__copy h1 {
+    max-width: 100%;
+    font-size: clamp(27px, 8vw, 48px);
+    white-space: normal;
+  }
+
+  .galaxy-intro__rule {
+    width: 76vw;
+    margin-top: 23px;
+  }
+
+  .galaxy-intro__tagline {
+    max-width: 340px;
+    margin-top: 22px;
+    font-size: 15px;
+  }
+}

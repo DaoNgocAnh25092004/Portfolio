@@ -1,0 +1,33 @@
+.intro-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: #080808;
+  display: grid;
+  place-items: center;
+  transition: opacity 0.6s;
+}
+
+.intro-screen.is-leaving {
+  opacity: 0;
+}
+
+.intro-video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+}
+
+@media (max-width: 700px) {
+  .intro-topline,
+  .intro-bottomline {
+    left: 20px;
+    right: 20px;
+  }
+
+  .intro-bottomline p {
+    max-width: 200px;
+  }
+}

@@ -1,0 +1,19 @@
+.text-type {
+  display: inline-block;
+  white-space: pre-wrap;
+}
+
+.text-type__content {
+  display: inline;
+}
+
+.text-type__cursor {
+  margin-left: 0.18em;
+  display: inline-block;
+  font-weight: 400;
+  color: currentColor;
+}
+
+.text-type__cursor--hidden {
+  display: none;
+}

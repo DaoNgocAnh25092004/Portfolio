@@ -1,0 +1,46 @@
+.wrap {
+  width: min(1400px, calc(100% - 80px));
+  margin: auto;
+}
+
+.site-shell {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+.galaxy-background {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.galaxy-background .galaxy-container {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  pointer-events: none;
+}
+
+.liquid-ether-container {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background: #080808;
+  touch-action: none;
+  pointer-events: auto;
+}
+
+.liquid-ether-container canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

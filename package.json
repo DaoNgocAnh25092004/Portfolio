@@ -1,0 +1,25 @@
+{
+  "name": "portfolio-studio",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.7.8",
+    "@react-three/fiber": "^9.7.0",
+    "@react-three/rapier": "^2.2.0",
+    "@vitejs/plugin-react": "latest",
+    "gsap": "^3.15.0",
+    "lucide-react": "latest",
+    "meshline": "^3.3.1",
+    "ogl": "^1.0.11",
+    "react": "latest",
+    "react-dom": "latest",
+    "three": "^0.180.0",
+    "vite": "latest"
+  }
+}

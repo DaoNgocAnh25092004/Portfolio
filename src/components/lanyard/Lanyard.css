@@ -1,0 +1,31 @@
+.lanyard-container {
+  position: relative;
+  z-index: 0;
+  /* Mở rộng vùng render hai bên để card vẫn còn không gian khi bị kéo lệch. */
+  width: calc(100% + 320px);
+  margin-left: -160px;
+  height: calc(100vh + 96px);
+  min-height: 680px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: none;
+  transform: translateY(-96px);
+  overflow: visible;
+}
+
+.lanyard-container > div {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+@media (max-width: 700px) {
+  .lanyard-container {
+    width: calc(100% + 120px);
+    margin-left: -60px;
+    height: calc(100vh + 76px);
+    min-height: 520px;
+    transform: translateY(-76px);
+  }
+}

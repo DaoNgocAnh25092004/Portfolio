@@ -1,0 +1,131 @@
+.mobile-notice {
+  display: none;
+}
+
+/* Làm mờ toàn bộ trải nghiệm phía sau để thông báo nổi bật trên mobile và tablet. */
+@media (max-width: 1024px) {
+  .mobile-notice {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    overflow: hidden;
+    background:
+      radial-gradient(
+        circle at 50% 42%,
+        rgba(255, 255, 255, 0.1),
+        transparent 30%
+      ),
+      rgba(5, 5, 5, 0.76);
+    color: #f5f5f5;
+    isolation: isolate;
+    backdrop-filter: blur(16px) saturate(0.7);
+    -webkit-backdrop-filter: blur(16px) saturate(0.7);
+  }
+
+  .mobile-notice::before,
+  .mobile-notice::after {
+    position: absolute;
+    content: "";
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .mobile-notice::before {
+    width: 330px;
+    height: 330px;
+    top: -150px;
+    right: -130px;
+  }
+
+  .mobile-notice::after {
+    width: 280px;
+    height: 280px;
+    bottom: -150px;
+    left: -130px;
+  }
+
+  .mobile-notice-card {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 390px);
+    padding: 30px 26px 22px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: 30px;
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.15), transparent 42%),
+      rgba(20, 20, 20, 0.72);
+    box-shadow:
+      0 24px 80px rgba(0, 0, 0, 0.62),
+      inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+
+  .mobile-notice-card::after {
+    position: absolute;
+    right: -30%;
+    bottom: -55%;
+    width: 240px;
+    height: 240px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    content: "";
+    pointer-events: none;
+  }
+
+  .mobile-notice-symbol {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    margin-bottom: 56px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 34px rgba(255, 255, 255, 0.1);
+  }
+
+  .mobile-notice-eyebrow,
+  .mobile-notice-footer {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.55);
+    font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .mobile-notice h2 {
+    max-width: 300px;
+    margin: 12px 0 16px;
+    color: #fff;
+    font-size: clamp(30px, 9vw, 40px);
+    font-weight: 600;
+    letter-spacing: -0.06em;
+    line-height: 0.98;
+  }
+
+  .mobile-notice-copy {
+    max-width: 310px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .mobile-notice-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 34px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+  }
+}
