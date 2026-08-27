@@ -35,6 +35,95 @@
   pointer-events: none;
 }
 
+.galaxy-intro__gate {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(3, 3, 3, 0.42);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.galaxy-intro__gate-card {
+  width: min(100%, 430px);
+  padding: 34px 32px 30px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 28px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.13), transparent 48%),
+    rgba(12, 12, 12, 0.76);
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.58),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  text-align: center;
+  animation: galaxyIntroGateIn 0.8s ease-out both;
+}
+
+.galaxy-intro__gate-mark {
+  display: block;
+  width: 68px;
+  height: 68px;
+  margin: 0 auto 30px;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 50%;
+  box-shadow: 0 0 34px rgba(255, 255, 255, 0.12);
+}
+
+.galaxy-intro__gate-label {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.54);
+  font: 11px/1.4 "DM Mono", monospace;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.galaxy-intro__gate-card h1 {
+  margin: 14px 0 13px;
+  color: #fff;
+  font: 500 clamp(32px, 5vw, 48px)/0.98 "Poppins", sans-serif;
+  letter-spacing: -0.055em;
+}
+
+.galaxy-intro__gate-copy {
+  max-width: 290px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.64);
+  font: 15px/1.6 "Poppins", sans-serif;
+}
+
+.galaxy-intro__gate-card button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  min-height: 50px;
+  margin-top: 27px;
+  padding: 0 22px;
+  border: 1px solid #fff;
+  border-radius: 999px;
+  background: #fff;
+  color: #080808;
+  font: 12px "DM Mono", monospace;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 220ms ease, background 220ms ease, color 220ms ease;
+}
+
+.galaxy-intro__gate-card button:hover {
+  transform: translateY(-2px);
+  background: #d8d8d8;
+}
+
+.galaxy-intro__gate-card button span {
+  font-size: 18px;
+  line-height: 1;
+}
+
 .galaxy-intro__copy {
   position: absolute;
   inset: 0;
@@ -47,6 +136,14 @@
   text-align: center;
   pointer-events: none;
   text-shadow: 0 3px 22px rgba(0, 0, 0, 0.9);
+}
+
+.galaxy-intro__copy > * {
+  animation-play-state: paused;
+}
+
+.galaxy-intro.is-started .galaxy-intro__copy > * {
+  animation-play-state: running;
 }
 
 .galaxy-intro__eyebrow {
@@ -117,7 +214,31 @@
   to { opacity: 1; transform: scaleX(1); }
 }
 
+@keyframes galaxyIntroGateIn {
+  from { opacity: 0; transform: translateY(14px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
 @media (max-width: 700px) {
+  .galaxy-intro__gate-card {
+    padding: 28px 22px 24px;
+    border-radius: 24px;
+  }
+
+  .galaxy-intro__gate-mark {
+    width: 58px;
+    height: 58px;
+    margin-bottom: 24px;
+  }
+
+  .galaxy-intro__gate-card h1 {
+    font-size: clamp(30px, 9vw, 42px);
+  }
+
+  .galaxy-intro__gate-copy {
+    font-size: 14px;
+  }
+
   .galaxy-intro__eyebrow {
     margin-bottom: 19px;
     font-size: 17px;

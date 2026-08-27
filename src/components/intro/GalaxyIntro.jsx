@@ -11,25 +11,29 @@ export default function GalaxyIntro({
   const audioRef = useRef(null);
   const onFinishRef = useRef(onFinish);
   const [isLeaving, setIsLeaving] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
 
   // Luôn giữ callback mới nhất mà không làm reset timeline khi component bắt đầu fade-out.
   useEffect(() => {
     onFinishRef.current = onFinish;
   }, [onFinish]);
 
+  // Bắt đầu audio ngay trong thao tác người dùng để trình duyệt cho phép phát tiếng.
+  const handleEnter = () => {
+    const audio = audioRef.current;
+    setHasStarted(true);
+
+    if (!audio) return;
+    audio.currentTime = 0;
+    audio.play().catch(() => {});
+  };
+
   useEffect(() => {
     const audio = audioRef.current;
+    if (!hasStarted) return undefined;
+
     let finishTimer;
     let leaveTimer;
-
-    // Cho phép autoplay khi trình duyệt hỗ trợ, còn lần chạm đầu tiên sẽ mở tiếng nếu autoplay bị chặn.
-    const playAudio = () => {
-      if (!audio) return;
-      audio.play().catch(() => {});
-    };
-
-    playAudio();
-    window.addEventListener("pointerdown", playAudio, { passive: true });
 
     // Đồng bộ fade-out với timeline để chữ biến mất mềm trước khi render HomePage.
     finishTimer = window.setTimeout(
@@ -41,16 +45,20 @@ export default function GalaxyIntro({
     );
 
     return () => {
-      window.removeEventListener("pointerdown", playAudio);
       window.clearTimeout(finishTimer);
       window.clearTimeout(leaveTimer);
       audio?.pause();
     };
-  }, [duration]);
+  }, [duration, hasStarted]);
+
+  // Giữ intro đứng ở màn hình mở đầu cho tới khi audio được kích hoạt bằng một click hợp lệ.
+  const introGate = !hasStarted && !isLeaving;
 
   return (
     <section
-      className={`galaxy-intro ${isLeaving ? "is-leaving" : ""}`}
+      className={`galaxy-intro ${hasStarted ? "is-started" : ""} ${
+        isLeaving ? "is-leaving" : ""
+      }`}
       aria-label="Intro portfolio"
     >
       <div className="galaxy-intro__scene" aria-hidden="true">
@@ -69,6 +77,27 @@ export default function GalaxyIntro({
           transparent={false}
         />
       </div>
+
+      {introGate && (
+        <div className="galaxy-intro__gate" role="dialog" aria-modal="true">
+          <div className="galaxy-intro__gate-card">
+            <img
+              className="galaxy-intro__gate-mark"
+              src="/assets/icon-favicon.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <p className="galaxy-intro__gate-label">Đào Ngọc Anh · Portfolio</p>
+            <h1>Enter the experience.</h1>
+            <p className="galaxy-intro__gate-copy">
+              Turn on sound to experience the full introduction.
+            </p>
+            <button type="button" onClick={handleEnter}>
+              Enter portfolio <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+        </div>
+      )}
 
       <div className="galaxy-intro__copy">
         <p className="galaxy-intro__eyebrow">I'M A</p>
