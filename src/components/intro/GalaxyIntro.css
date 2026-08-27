@@ -138,21 +138,12 @@
   text-shadow: 0 3px 22px rgba(0, 0, 0, 0.9);
 }
 
-.galaxy-intro__copy > * {
-  animation-play-state: paused;
-}
-
-.galaxy-intro.is-started .galaxy-intro__copy > * {
-  animation-play-state: running;
-}
-
 .galaxy-intro__eyebrow {
   margin: 0 0 24px;
   font: 600 clamp(18px, 2vw, 32px)/1 "Poppins", sans-serif;
   letter-spacing: 0.18em;
   opacity: 0;
   transform: translateY(12px);
-  animation: galaxyIntroRise 0.7s 0.55s ease-out forwards;
 }
 
 .galaxy-intro__copy h1 {
@@ -163,7 +154,6 @@
   opacity: 0;
   filter: blur(8px);
   transform: scale(1.025);
-  animation: galaxyIntroTitle 1.05s 1.15s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
 }
 
 .galaxy-intro__rule {
@@ -174,7 +164,6 @@
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.65), transparent);
   opacity: 0;
   transform: scaleX(0);
-  animation: galaxyIntroRule 0.8s 2.25s ease-out forwards;
 }
 
 .galaxy-intro__rule::after {
@@ -195,6 +184,21 @@
   color: rgba(247, 247, 245, 0.72);
   opacity: 0;
   transform: translateY(10px);
+}
+
+.galaxy-intro.is-started .galaxy-intro__eyebrow {
+  animation: galaxyIntroRise 0.7s 0.55s ease-out forwards;
+}
+
+.galaxy-intro.is-started .galaxy-intro__copy h1 {
+  animation: galaxyIntroTitle 1.05s 1.15s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+
+.galaxy-intro.is-started .galaxy-intro__rule {
+  animation: galaxyIntroRule 0.8s 2.25s ease-out forwards;
+}
+
+.galaxy-intro.is-started .galaxy-intro__tagline {
   animation: galaxyIntroRise 0.85s 2.75s ease-out forwards;
 }
 

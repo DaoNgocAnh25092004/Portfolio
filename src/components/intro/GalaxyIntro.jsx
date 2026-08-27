@@ -88,10 +88,8 @@ export default function GalaxyIntro({
               aria-hidden="true"
             />
             <p className="galaxy-intro__gate-label">Đào Ngọc Anh · Portfolio</p>
-            <h1>Enter the experience.</h1>
-            <p className="galaxy-intro__gate-copy">
-              Turn on sound to experience the full introduction.
-            </p>
+            <h2>Enter the experience.</h2>
+
             <button type="button" onClick={handleEnter}>
               Enter portfolio <span aria-hidden="true">↗</span>
             </button>
