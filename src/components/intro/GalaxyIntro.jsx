@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { ArrowUpRight } from "lucide-react";
 import Galaxy from "../background/Galaxy";
 import "./GalaxyIntro.css";
 
@@ -81,18 +82,33 @@ export default function GalaxyIntro({
       {introGate && (
         <div className="galaxy-intro__gate" role="dialog" aria-modal="true">
           <div className="galaxy-intro__gate-card">
-            <img
-              className="galaxy-intro__gate-mark"
-              src="/assets/icon-favicon.png"
-              alt=""
-              aria-hidden="true"
-            />
-            <p className="galaxy-intro__gate-label">Đào Ngọc Anh · Portfolio</p>
-            <h2>Enter the experience.</h2>
+            <div className="galaxy-intro__gate-topline">
+              <span>Fullstack Developer</span>
+            </div>
 
-            <button type="button" onClick={handleEnter}>
-              Enter portfolio <span aria-hidden="true">↗</span>
-            </button>
+            <div className="galaxy-intro__gate-content">
+              <img
+                className="galaxy-intro__gate-mark"
+                src="/assets/icon-favicon.png"
+                alt=""
+                aria-hidden="true"
+              />
+              <p className="galaxy-intro__gate-label">
+                Đào Ngọc Anh <span>/</span> Portfolio
+              </p>
+              <h2>
+                Enter <span>the experience.</span>
+              </h2>
+
+              <button type="button" onClick={handleEnter}>
+                Enter portfolio <ArrowUpRight size={18} strokeWidth={1.8} aria-hidden="true" />
+              </button>
+            </div>
+
+            <div className="galaxy-intro__gate-bottomline">
+              <span></span>
+              <span>Ho Chi Minh City</span>
+            </div>
           </div>
         </div>
       )}

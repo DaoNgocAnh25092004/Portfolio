@@ -21,7 +21,7 @@
   position: relative;
   z-index: 1;
   align-self: center;
-  transform: translateY(clamp(-10px, -17vh, -54px));
+  transform: translateY(clamp(-36px, -4vh, -18px));
 }
 
 .hero-visual {
