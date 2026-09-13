@@ -98,21 +98,6 @@
   flex: 1;
 }
 
-.about-section {
-  border-top: 1px solid #404040;
-  padding: 15px 0 160px;
-  position: relative;
-  z-index: 1;
-}
-
-.about-copy {
-  font-size: clamp(30px, 4.3vw, 63px);
-  line-height: 1.05;
-  letter-spacing: -0.075em;
-  max-width: 980px;
-  margin: 80px 0 48px;
-}
-
 .text-link {
   font:
     12px "DM Mono",
@@ -187,14 +172,6 @@
 
   .project-meta h2 {
     width: 100%;
-  }
-
-  .about-section {
-    padding-bottom: 110px;
-  }
-
-  .about-copy {
-    margin-top: 54px;
   }
 
   .email {

@@ -2,6 +2,10 @@ import { Renderer, Program, Mesh, Color, Triangle } from "ogl";
 import { useEffect, useRef } from "react";
 import "./Galaxy.css";
 
+// Giữ các giá trị mặc định cố định để render lại App không dựng lại WebGL canvas.
+const DEFAULT_FOCAL = Object.freeze([0.5, 0.5]);
+const DEFAULT_ROTATION = Object.freeze([1.0, 0.0]);
+
 const vertexShader = `
 attribute vec2 uv;
 attribute vec2 position;
@@ -172,8 +176,8 @@ void main() {
 
 // Khởi tạo nền sao OGL toàn màn hình, nhận cấu hình chuyển động và tương tác từ component cha.
 export default function Galaxy({
-  focal = [0.5, 0.5],
-  rotation = [1.0, 0.0],
+  focal = DEFAULT_FOCAL,
+  rotation = DEFAULT_ROTATION,
   starSpeed = 0.5,
   density = 1,
   hueShift = 140,

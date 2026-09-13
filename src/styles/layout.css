@@ -4,10 +4,22 @@
 }
 
 .site-shell {
+  width: 100vw;
   min-height: 100vh;
   position: relative;
+  z-index: 1;
   overflow-x: clip;
   overflow-y: visible;
+}
+
+.site-shell--pending {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .galaxy-background {

@@ -1,6 +1,7 @@
 @import "./base.css";
 @import "./layout.css";
-@import "./navigation.css";
-@import "./hero.css";
-@import "./sections.css";
+@import "../pages/home/styles/navigation.css";
+@import "../pages/home/styles/hero.css";
+@import "../pages/home/styles/sections.css";
+@import "../pages/home/styles/about.css";
 @import "./intro.css";

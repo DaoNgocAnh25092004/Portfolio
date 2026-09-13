@@ -3,8 +3,8 @@
 :root {
   font-family: "Manrope", sans-serif;
   color: #f5f5f5;
-  background: #080808;
-  scroll-behavior: smooth;
+  background: #000000;
+  scroll-behavior: auto;
 }
 
 * {
@@ -13,8 +13,14 @@
 
 body {
   margin: 0;
-  background: #080808;
+  min-height: 100vh;
+  background: #000000;
   overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  background: #000000;
 }
 
 a {

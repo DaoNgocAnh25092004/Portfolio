@@ -36,6 +36,10 @@
   justify-content: center;
 }
 
+.hero-visual canvas {
+  filter: grayscale(1);
+}
+
 .hero-kicker,
 .eyebrow,
 .section-head,

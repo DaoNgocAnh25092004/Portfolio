@@ -266,6 +266,18 @@ function Band({
 
   // Cập nhật vật lý, đường dây và vị trí thẻ ở mỗi frame render.
   useFrame((state, delta) => {
+    // Chờ đủ rigid body và geometry; frame đầu của Rapier có thể chưa gán xong ref.
+    if (
+      !fixed.current ||
+      !j1.current ||
+      !j2.current ||
+      !j3.current ||
+      !card.current ||
+      !band.current?.geometry
+    ) {
+      return;
+    }
+
     if (dragged) {
       vec.set(state.pointer.x, state.pointer.y, 0.5).unproject(state.camera);
       dir.copy(vec).sub(state.camera.position).normalize();
@@ -303,6 +315,16 @@ function Band({
       curve.points[1].copy(j2.current.lerped);
       curve.points[2].copy(j1.current.lerped);
       curve.points[3].copy(fixed.current.translation());
+
+      // Bỏ frame physics chưa ổn định để NaN không lọt vào vertex buffer của MeshLine.
+      const hasInvalidPoint = curve.points.some(
+        (point) =>
+          !Number.isFinite(point.x) ||
+          !Number.isFinite(point.y) ||
+          !Number.isFinite(point.z),
+      );
+      if (hasInvalidPoint) return;
+
       band.current.geometry.setPoints(curve.getPoints(isMobile ? 12 : 24));
       ang.copy(card.current.angvel());
       rot.copy(card.current.rotation());

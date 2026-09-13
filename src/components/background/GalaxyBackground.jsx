@@ -1,7 +1,8 @@
+import { memo } from "react";
 import Galaxy from "./Galaxy";
 
 // Đặt Galaxy phủ toàn bộ portfolio, giữ canvas ở lớp nền để không chặn thao tác với nội dung.
-export default function GalaxyBackground() {
+function GalaxyBackground() {
   return (
     <div className="galaxy-background" aria-hidden="true">
       <Galaxy
@@ -21,3 +22,6 @@ export default function GalaxyBackground() {
     </div>
   );
 }
+
+// Intro đổi state ở App; giữ Galaxy khỏi render lại để canvas nền không nháy khi chuyển trang.
+export default memo(GalaxyBackground);

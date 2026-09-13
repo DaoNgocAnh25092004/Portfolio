@@ -13,7 +13,7 @@
   height: auto;
   z-index: 20;
   overflow: hidden;
-  background: #030303;
+  background: rgba(3, 3, 3, 0.14);
   color: #f7f7f7;
   opacity: 1;
   transition: opacity 0.62s ease;
@@ -22,19 +22,6 @@
 
 .galaxy-intro.is-leaving {
   opacity: 0;
-}
-
-.galaxy-intro__scene,
-.galaxy-intro__scene .galaxy-container {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.galaxy-intro__scene {
-  z-index: 0;
-  pointer-events: none;
 }
 
 .galaxy-intro__gate {
@@ -174,7 +161,7 @@
     sans-serif;
 }
 
-.galaxy-intro__gate-card button {
+.galaxy-intro__enter-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -198,12 +185,12 @@
     color 220ms ease;
 }
 
-.galaxy-intro__gate-card button:hover {
+.galaxy-intro__enter-button:hover {
   transform: translateY(-2px);
   background: #d8d8d8;
 }
 
-.galaxy-intro__gate-card button svg {
+.galaxy-intro__enter-button svg {
   flex: 0 0 auto;
 }
 
@@ -246,6 +233,11 @@
   opacity: 0;
   filter: blur(8px);
   transform: scale(1.025);
+}
+
+.galaxy-intro:lang(vi) .galaxy-intro__copy h1 {
+  width: min(100%, 1000px);
+  white-space: normal;
 }
 
 .galaxy-intro__rule {

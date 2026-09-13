@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
-  z-index: 2;
+  z-index: 20;
   isolation: isolate;
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 999px;
@@ -87,6 +87,59 @@
   transform: translateY(-1px);
 }
 
+.nav-controls {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: auto;
+  touch-action: manipulation;
+}
+
+.language-toggle {
+  position: relative;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-width: 62px;
+  height: 38px;
+  padding: 0 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.055);
+  color: #d7d7d7;
+  font: 10px "DM Mono", monospace;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  pointer-events: auto;
+  transition:
+    background 220ms ease,
+    border-color 220ms ease,
+    transform 220ms ease;
+}
+
+.language-toggle:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.38);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.language-toggle:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 3px;
+}
+
+.language-toggle img {
+  display: block;
+  width: 21px;
+  height: 15px;
+  border-radius: 2px;
+  object-fit: cover;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -143,6 +196,17 @@
     padding-right: 5px;
   }
 
+  .nav-controls {
+    margin-left: auto;
+    margin-right: 7px;
+  }
+
+  .language-toggle {
+    min-width: 58px;
+    height: 36px;
+    padding: 0 8px;
+  }
+
   .brand {
     gap: 7px;
     padding: 4px 10px 4px 5px;
@@ -159,7 +223,7 @@
     display: none;
     position: absolute;
     top: 60px;
-    right: 0;
+    right: 52px;
     min-width: 190px;
     padding: 8px;
     flex-direction: column;
