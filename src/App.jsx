@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
-import Lenis from "lenis";
-import "lenis/dist/lenis.css";
+import { useState } from "react";
 import GalaxyBackground from "./components/background/GalaxyBackground";
 import GalaxyIntro from "./components/intro/GalaxyIntro";
 import HomePage from "./pages/home/HomePage";
@@ -10,32 +8,6 @@ import { LanguageProvider } from "./i18n/LanguageContext";
 function PortfolioApp() {
   const [showIntro, setShowIntro] = useState(true);
   const [showHome, setShowHome] = useState(false);
-
-  // Đồng bộ Lenis với GSAP để các hiệu ứng cuộn hiện có tiếp tục bám đúng vị trí trang.
-  useEffect(() => {
-    const lenis = new Lenis({
-      anchors: true,
-      // Giữ cuộn mượt theo yêu cầu kể cả khi trình duyệt báo giảm chuyển động.
-      respectReducedMotion: false,
-    });
-    let frameId;
-    let lastTime = 0;
-
-    // Dùng một RAF riêng cho Lenis để bỏ ticker GSAP không cần thiết trong toàn bộ trang.
-    const updateLenis = (time) => {
-      if (time - lastTime >= 16) {
-        lastTime = time;
-        lenis.raf(time);
-      }
-      frameId = window.requestAnimationFrame(updateLenis);
-    };
-    frameId = window.requestAnimationFrame(updateLenis);
-
-    return () => {
-      window.cancelAnimationFrame(frameId);
-      lenis.destroy();
-    };
-  }, []);
 
   return (
     <>

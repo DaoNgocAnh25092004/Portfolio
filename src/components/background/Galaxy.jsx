@@ -2,7 +2,7 @@ import { Renderer, Program, Mesh, Color, Triangle } from "ogl";
 import { useEffect, useRef } from "react";
 import "./Galaxy.css";
 
-// Giữ các giá trị mặc định cố định để render lại App không dựng lại WebGL canvas.
+// Giá»¯ cÃ¡c giÃ¡ trá»‹ máº·c Ä‘á»‹nh cá»‘ Ä‘á»‹nh Ä‘á»ƒ render láº¡i App khÃ´ng dá»±ng láº¡i WebGL canvas.
 const DEFAULT_FOCAL = Object.freeze([0.5, 0.5]);
 const DEFAULT_ROTATION = Object.freeze([1.0, 0.0]);
 
@@ -19,7 +19,7 @@ void main() {
 `;
 
 const fragmentShader = `
-precision highp float;
+precision mediump float;
 
 uniform float uTime;
 uniform vec3 uResolution;
@@ -42,7 +42,7 @@ uniform bool uTransparent;
 
 varying vec2 vUv;
 
-#define NUM_LAYER 3.0
+#define NUM_LAYER 1.0
 #define STAR_COLOR_CUTOFF 0.2
 #define MAT45 mat2(0.7071, -0.7071, 0.7071, 0.7071)
 #define PERIOD 3.0
@@ -174,7 +174,7 @@ void main() {
 }
 `;
 
-// Khởi tạo nền sao OGL toàn màn hình, nhận cấu hình chuyển động và tương tác từ component cha.
+// Khá»Ÿi táº¡o ná»n sao OGL toÃ n mÃ n hÃ¬nh, nháº­n cáº¥u hÃ¬nh chuyá»ƒn Ä‘á»™ng vÃ  tÆ°Æ¡ng tÃ¡c tá»« component cha.
 export default function Galaxy({
   focal = DEFAULT_FOCAL,
   rotation = DEFAULT_ROTATION,
@@ -200,7 +200,7 @@ export default function Galaxy({
   const targetMouseActive = useRef(0.0);
   const smoothMouseActive = useRef(0.0);
 
-  // Đồng bộ vòng đời WebGL với component để canvas không bị tạo lặp hoặc rò rỉ khi điều hướng.
+  // Äá»“ng bá»™ vÃ²ng Ä‘á»i WebGL vá»›i component Ä‘á»ƒ canvas khÃ´ng bá»‹ táº¡o láº·p hoáº·c rÃ² rá»‰ khi Ä‘iá»u hÆ°á»›ng.
   useEffect(() => {
     if (!ctnDom.current) return;
     const ctn = ctnDom.current;
@@ -220,10 +220,11 @@ export default function Galaxy({
 
     let program;
 
-    // Cập nhật kích thước render theo vùng chứa nhưng giữ kích thước hiển thị phủ kín viewport.
+    // Cáº­p nháº­t kÃ­ch thÆ°á»›c render theo vÃ¹ng chá»©a nhÆ°ng giá»¯ kÃ­ch thÆ°á»›c hiá»ƒn thá»‹ phá»§ kÃ­n viewport.
     function resize() {
-      // Giảm số pixel shader xử lý để mượt hơn, sau đó ép canvas hiển thị lại đúng toàn bộ vùng chứa.
-      const scale = window.innerWidth < 768 ? 0.55 : 0.7;
+      // Giáº£m sá»‘ pixel shader xá»­ lÃ½ Ä‘á»ƒ mÆ°á»£t hÆ¡n, sau Ä‘Ã³ Ã©p canvas hiá»ƒn thá»‹ láº¡i Ä‘Ãºng toÃ n bá»™ vÃ¹ng chá»©a.
+      // Gi?m d? phân gi?i n?i b? c?a shader d? GPU x? lý ít pixel hon mà canvas v?n ph? kín màn hình.
+      const scale = window.innerWidth < 768 ? 0.38 : 0.46;
       const displayWidth = Math.max(1, ctn.offsetWidth);
       const displayHeight = Math.max(1, ctn.offsetHeight);
       const renderWidth = Math.max(1, Math.floor(displayWidth * scale));
@@ -246,7 +247,7 @@ export default function Galaxy({
 
     let isPageHidden = document.hidden;
 
-    // Theo dõi trạng thái tab để không tiếp tục tiêu tốn GPU khi người dùng chuyển sang trang khác.
+    // Theo dÃµi tráº¡ng thÃ¡i tab Ä‘á»ƒ khÃ´ng tiáº¿p tá»¥c tiÃªu tá»‘n GPU khi ngÆ°á»i dÃ¹ng chuyá»ƒn sang trang khÃ¡c.
     function handleVisibilityChange() {
       isPageHidden = document.hidden;
     }
@@ -292,7 +293,8 @@ export default function Galaxy({
 
     const mesh = new Mesh(gl, { geometry, program });
     let animateId;
-    // Chạy render loop, làm mượt chuột rồi truyền trạng thái mới vào shader.
+    let lastRenderTime = 0;
+    // Cháº¡y render loop, lÃ m mÆ°á»£t chuá»™t rá»“i truyá»n tráº¡ng thÃ¡i má»›i vÃ o shader.
     function update(t) {
       animateId = requestAnimationFrame(update);
       if (isPageHidden) return;
@@ -301,7 +303,7 @@ export default function Galaxy({
         program.uniforms.uStarSpeed.value = (t * 0.001 * starSpeed) / 10.0;
       }
 
-      // Tọa độ chuột cần bám ngay lập tức; chỉ làm mượt cường độ hiệu ứng khi chuột vào/rời màn hình.
+      // Tá»a Ä‘á»™ chuá»™t cáº§n bÃ¡m ngay láº­p tá»©c; chá»‰ lÃ m mÆ°á»£t cÆ°á»ng Ä‘á»™ hiá»‡u á»©ng khi chuá»™t vÃ o/rá»i mÃ n hÃ¬nh.
       const mousePositionLerpFactor = 1.0;
       const mouseActiveLerpFactor = 0.12;
       smoothMousePos.current.x +=
@@ -321,7 +323,7 @@ export default function Galaxy({
     animateId = requestAnimationFrame(update);
     ctn.appendChild(gl.canvas);
 
-    // Quy đổi vị trí chuột về hệ tọa độ 0-1 để shader tạo hiệu ứng đẩy sao.
+    // Quy Ä‘á»•i vá»‹ trÃ­ chuá»™t vá» há»‡ tá»a Ä‘á»™ 0-1 Ä‘á»ƒ shader táº¡o hiá»‡u á»©ng Ä‘áº©y sao.
     function handleMouseMove(e) {
       const rect = ctn.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width;
@@ -330,13 +332,13 @@ export default function Galaxy({
       targetMouseActive.current = 1.0;
     }
 
-    // Giảm dần ảnh hưởng chuột khi con trỏ rời khỏi vùng background.
+    // Giáº£m dáº§n áº£nh hÆ°á»Ÿng chuá»™t khi con trá» rá»i khá»i vÃ¹ng background.
     function handleMouseLeave() {
       targetMouseActive.current = 0.0;
     }
 
     if (mouseInteraction) {
-      // Lắng nghe ở window để hiệu ứng vẫn nhận chuột khi nội dung portfolio nằm phía trên canvas.
+      // Láº¯ng nghe á»Ÿ window Ä‘á»ƒ hiá»‡u á»©ng váº«n nháº­n chuá»™t khi ná»™i dung portfolio náº±m phÃ­a trÃªn canvas.
       window.addEventListener("mousemove", handleMouseMove);
       window.addEventListener("mouseleave", handleMouseLeave);
     }
