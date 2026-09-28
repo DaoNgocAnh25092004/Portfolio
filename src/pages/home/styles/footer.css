@@ -1,0 +1,28 @@
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  min-height: 62px;
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+  color: #8f9899;
+  font: 10px "DM Mono", monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.site-footer span:last-child {
+  color: #687173;
+}
+
+@media (max-width: 700px) {
+  .site-footer {
+    flex-direction: column;
+    justify-content: center;
+    gap: 7px;
+    min-height: 76px;
+    font-size: 9px;
+    text-align: center;
+    align-items: center;
+  }
+}

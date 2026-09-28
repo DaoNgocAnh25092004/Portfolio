@@ -31,6 +31,9 @@ export default function Navigation({ menuOpen, setMenuOpen }) {
           <a href="#projects" onClick={() => setMenuOpen(false)}>
             {t.navigation.projects}
           </a>
+          <a href="#contact" onClick={() => setMenuOpen(false)}>
+            {t.navigation.contact}
+          </a>
         </div>
         <LanguageToggle />
       </div>

@@ -17,6 +17,7 @@ const translations = {
       about: "About me",
       projects: "Projects",
       skills: "Skills",
+      contact: "Contact",
       openMenu: "Open menu",
       closeMenu: "Close menu",
     },
@@ -52,6 +53,21 @@ const translations = {
       viewProjects: "View projects",
       githubProfile: "GitHub profile",
       profileLabel: "Interactive profile card",
+    },
+    contact: {
+      eyebrow: "LET'S CONNECT",
+      titleFirst: "Open to the next",
+      titleAccent: "opportunity.",
+      description:
+        "I am looking for a Fullstack Developer opportunity where I can contribute to meaningful products, grow with a strong team, and create lasting value.",
+      detailsLabel: "Contact channels",
+      emailLabel: "Email",
+      phoneLabel: "Phone",
+      githubLabel: "GitHub",
+    },
+    footer: {
+      copyright: "© 2026 Đào Ngọc Anh. All rights reserved.",
+      label: "Personal portfolio",
     },
     about: {
       eyebrow: "ABOUT / PROFILE",
@@ -235,6 +251,7 @@ const translations = {
       about: "Giới thiệu",
       projects: "Dự án",
       skills: "Kỹ năng",
+      contact: "Liên hệ",
       openMenu: "Mở menu",
       closeMenu: "Đóng menu",
     },
@@ -270,6 +287,21 @@ const translations = {
       viewProjects: "Xem dự án",
       githubProfile: "Hồ sơ GitHub",
       profileLabel: "Thẻ hồ sơ tương tác",
+    },
+    contact: {
+      eyebrow: "KẾT NỐI VỚI TÔI",
+      titleFirst: "Sẵn sàng cho",
+      titleAccent: "cơ hội tiếp theo.",
+      description:
+        "Mình đang tìm kiếm cơ hội Fullstack Developer để đóng góp vào những sản phẩm thực tế, phát triển cùng đội ngũ và tạo ra giá trị bền vững.",
+      detailsLabel: "Các kênh liên hệ",
+      emailLabel: "Email",
+      phoneLabel: "Điện thoại",
+      githubLabel: "GitHub",
+    },
+    footer: {
+      copyright: "© 2026 Đào Ngọc Anh. Bản quyền thuộc về tác giả.",
+      label: "Portfolio cá nhân",
     },
     about: {
       eyebrow: "GIỚI THIỆU / HỒ SƠ",
