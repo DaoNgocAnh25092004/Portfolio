@@ -1,4 +1,11 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
+﻿import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 
 const LANGUAGE_STORAGE_KEY = "portfolio-language";
 
@@ -44,6 +51,34 @@ const translations = {
       viewProjects: "View projects",
       githubProfile: "GitHub profile",
       profileLabel: "Interactive profile card",
+    },
+    about: {
+      eyebrow: "ABOUT / PROFILE",
+      titleFirst: "About",
+      titleAccent: "Me",
+      description:
+        "A concise view of my education and personal contact details.",
+      summaryFirst:
+        "As a Fullstack Developer, I build web products across the interface, backend, and data layers. My experience with React, Next.js, Node.js, Express.js, NestJS, PostgreSQL, MongoDB, Redis, Kafka, microservices, and event-driven architectures helps me create scalable and maintainable solutions.",
+      summarySecond:
+        "I turn complex product requirements into clear, dependable systems, balancing thoughtful interfaces, resilient services, and practical architecture so each product can evolve with confidence.",
+      contactLabel: "Let's connect",
+      location: "Location",
+      city: "Ho Chi Minh City, Vietnam",
+      phone: "Phone",
+      email: "Email",
+      github: "GitHub",
+      education: {
+        eyebrow: "Education",
+        title: "Industrial University of Ho Chi Minh City",
+        meta: "2022 – 2027 (Expected)",
+        detail: "Software Engineering",
+        gpaLabel: "GPA",
+        gpa: "3.46 / 4.0",
+        awardsLabel: "Awards",
+        awards:
+          "Scholarship for outstanding academic achievement (2023 – 2026)",
+      },
     },
     skills: {
       titleFirst: "Technical",
@@ -134,10 +169,38 @@ const translations = {
       githubProfile: "Hồ sơ GitHub",
       profileLabel: "Thẻ hồ sơ tương tác",
     },
+    about: {
+      eyebrow: "GIỚI THIỆU / HỒ SƠ",
+      titleFirst: "Về",
+      titleAccent: "tôi",
+      description:
+        "Thông tin cô đọng về học vấn và các kênh liên hệ cá nhân của tôi.",
+      summaryFirst:
+        "Là lập trình viên Fullstack, tôi xây dựng sản phẩm web từ giao diện, backend đến quy trình dữ liệu. Kinh nghiệm với React, Next.js, Node.js, Express.js, NestJS, PostgreSQL, MongoDB, Redis, Kafka và microservices giúp tôi tạo ra các giải pháp có khả năng mở rộng, rõ ràng và dễ bảo trì.",
+      summarySecond:
+        "Tôi chuyển hóa yêu cầu sản phẩm thành hệ thống rõ ràng và đáng tin cậy, cân bằng giữa giao diện chỉn chu, dịch vụ ổn định và kiến trúc thực tế để sản phẩm phát triển vững chắc.",
+      contactLabel: "Kết nối với tôi",
+      location: "Địa điểm",
+      city: "Thành phố Hồ Chí Minh, Việt Nam",
+      phone: "Điện thoại",
+      email: "Email",
+      github: "GitHub",
+      education: {
+        eyebrow: "Học vấn",
+        title: "Trường Đại học Công nghiệp Thành phố Hồ Chí Minh",
+        meta: "2022 – 2027 (Dự kiến)",
+        detail: "Kỹ thuật phần mềm",
+        gpaLabel: "GPA",
+        gpa: "3.46 / 4.0",
+        awardsLabel: "Thành tích",
+        awards: "Học bổng khuyến khích học tập (2023 – 2026)",
+      },
+    },
     skills: {
       titleFirst: "Kỹ năng",
       titleAccent: "chuyên môn",
-      description: "Kinh nghiệm của tôi về frontend, backend, dữ liệu, AI và DevOps.",
+      description:
+        "Kinh nghiệm của tôi về frontend, backend, dữ liệu, AI và DevOps.",
       overview: "Tổng quan kỹ năng",
       focusAreas: "Lĩnh vực chính",
       technologies: "Công nghệ",
@@ -188,7 +251,9 @@ const LanguageContext = createContext(null);
 // Đọc lựa chọn đã lưu và dùng tiếng Anh khi đây là lần truy cập đầu tiên.
 function getInitialLanguage() {
   try {
-    return window.localStorage.getItem(LANGUAGE_STORAGE_KEY) === "vi" ? "vi" : "en";
+    return window.localStorage.getItem(LANGUAGE_STORAGE_KEY) === "vi"
+      ? "vi"
+      : "en";
   } catch {
     return "en";
   }
@@ -210,7 +275,7 @@ export function LanguageProvider({ children }) {
 
   // Đổi ngôn ngữ ngay lập tức và lưu lựa chọn để lần truy cập sau được giữ nguyên.
   const toggleLanguage = useCallback(() => {
-    setLanguage((currentLanguage) => currentLanguage === "en" ? "vi" : "en");
+    setLanguage((currentLanguage) => (currentLanguage === "en" ? "vi" : "en"));
   }, []);
 
   const contextValue = useMemo(
@@ -218,12 +283,17 @@ export function LanguageProvider({ children }) {
     [language, toggleLanguage],
   );
 
-  return <LanguageContext.Provider value={contextValue}>{children}</LanguageContext.Provider>;
+  return (
+    <LanguageContext.Provider value={contextValue}>
+      {children}
+    </LanguageContext.Provider>
+  );
 }
 
 // Lấy ngôn ngữ hiện tại, nội dung tương ứng và thao tác chuyển đổi trong component.
 export function useLanguage() {
   const context = useContext(LanguageContext);
-  if (!context) throw new Error("useLanguage phải được dùng bên trong LanguageProvider.");
+  if (!context)
+    throw new Error("useLanguage phải được dùng bên trong LanguageProvider.");
   return context;
 }

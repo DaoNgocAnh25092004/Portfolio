@@ -1,12 +1,13 @@
 import { ArrowUpRight } from "lucide-react";
-import { Suspense, useEffect, useState } from "react";
-import Lanyard from "../../../components/lanyard/Lanyard";
+import { lazy, Suspense, useEffect, useState } from "react";
 import TextType from "../../../components/text-type/TextType";
 import { useLanguage } from "../../../i18n/LanguageContext";
 
-// Táº¡o hero hai cá»™t vá»›i thÃ´ng tin tháº­t cá»§a ÄÃ o Ngá»c Anh vÃ  tháº» lanyard 3D tÆ°Æ¡ng tÃ¡c.
-// Chá»‰ táº¡o canvas lanyard khi Home Ä‘Ã£ hiá»ƒn thá»‹, trÃ¡nh cháº¡y WebGL áº©n bÃªn dÆ°á»›i intro.
-// Trì hoãn WebGL/Rapier c?a th? profile d? không tranh GPU v?i frame d?u và lúc intro v?a k?t thúc.
+const Lanyard = lazy(() => import("../../../components/lanyard/Lanyard"));
+
+// Tạo hero hai cột với thông tin thật của Đào Ngọc Anh và thẻ lanyard 3D tương tác.
+// Chỉ tạo canvas lanyard khi Home đã hiển thị, tránh chạy WebGL ẩn bên dưới intro.
+// Trì hoãn WebGL/Rapier của thẻ profile để không tranh GPU với frame đầu và lúc intro vừa kết thúc.
 function DeferredLanyard({ isVisible }) {
   const [ready, setReady] = useState(false);
 
@@ -35,7 +36,7 @@ export default function HeroSection({ isVisible = true }) {
     <section className="hero wrap" id="top">
       <div className="hero-grid">
         <div className="hero-content">
-          <div className="hero-kicker">ÄÃ o Ngá»c Anh / {t.hero.role}</div>
+          <div className="hero-kicker">Đào Ngọc Anh / {t.hero.role}</div>
           <h1>
             <TextType
               key={language}

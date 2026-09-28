@@ -2,9 +2,10 @@ import { useState } from "react";
 import Navigation from "./components/Navigation";
 import MobileNotice from "./components/MobileNotice";
 import HeroSection from "./sections/HeroSection";
+import AboutMeSection from "./sections/AboutMeSection";
 import AboutSection from "./sections/AboutSection";
 
-// Ghép các section của portfolio một trang; navigation dùng anchor để giữ trải nghiệm nhẹ và dễ deploy.
+// Ghép các section của portfolio theo thứ tự giới thiệu, hồ sơ và kỹ năng.
 export default function HomePage({ isVisible = true }) {
   const [menuOpen, setMenuOpen] = useState(true);
 
@@ -15,6 +16,7 @@ export default function HomePage({ isVisible = true }) {
     >
       <Navigation menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <HeroSection isVisible={isVisible} />
+      <AboutMeSection />
       <AboutSection />
       <MobileNotice />
     </main>

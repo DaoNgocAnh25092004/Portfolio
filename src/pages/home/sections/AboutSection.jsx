@@ -5,15 +5,14 @@ import { useLanguage } from "../../../i18n/LanguageContext";
 
 // Ghép lần lượt ảnh trong thư mục skills với frontend, backend, data, AI và DevOps.
 const SPIRAL_ITEMS = [
-  { id: "skill-frontend", src: "/assets/images/skills/1.png", alt: "Frontend interface and web design" },
-  { id: "skill-backend", src: "/assets/images/skills/2.png", alt: "Backend server infrastructure" },
-  { id: "skill-architecture", src: "/assets/images/skills/3.png", alt: "Connected nodes representing system architecture" },
-  { id: "skill-database", src: "/assets/images/skills/4.png", alt: "Database layers and data storage" },
-  { id: "skill-messaging", src: "/assets/images/skills/5.png", alt: "Data streams moving through a messaging system" },
-  { id: "skill-ai", src: "/assets/images/skills/6.png", alt: "Neural network representing artificial intelligence" },
-  { id: "skill-rag", src: "/assets/images/skills/7.png", alt: "AI knowledge graph and connected information" },
-  { id: "skill-cloud", src: "/assets/images/skills/8.png", alt: "Cloud infrastructure connected to servers" },
-  { id: "skill-devops", src: "/assets/images/skills/9.png", alt: "Automated deployment pipeline and containers" },
+  { id: "skill-frontend", labelIndex: 0, src: "/assets/images/skills/1.png", alt: "Frontend interface and web design" },
+  { id: "skill-backend", labelIndex: 1, src: "/assets/images/skills/2.png", alt: "Backend server infrastructure" },
+  { id: "skill-database", labelIndex: 3, src: "/assets/images/skills/4.png", alt: "Database layers and data storage" },
+  { id: "skill-messaging", labelIndex: 4, src: "/assets/images/skills/5.png", alt: "Data streams moving through a messaging system" },
+  { id: "skill-ai", labelIndex: 5, src: "/assets/images/skills/6.png", alt: "Neural network representing artificial intelligence" },
+  { id: "skill-rag", labelIndex: 6, src: "/assets/images/skills/7.png", alt: "AI knowledge graph and connected information" },
+  { id: "skill-cloud", labelIndex: 7, src: "/assets/images/skills/8.png", alt: "Cloud infrastructure connected to servers" },
+  { id: "skill-devops", labelIndex: 8, src: "/assets/images/skills/9.png", alt: "Automated deployment pipeline and containers" },
 ];
 
 export default function AboutSection() {
@@ -22,7 +21,8 @@ export default function AboutSection() {
 
   // Cập nhật mô tả ảnh theo ngôn ngữ mà không tạo lại cấu hình gallery ở mỗi lần render.
   const spiralItems = useMemo(
-    () => SPIRAL_ITEMS.map((item, index) => ({ ...item, alt: t.skills.galleryItems[index] })),
+    // Giữ nhãn theo file gốc để bỏ ảnh số 3 mà không làm lệch mô tả các ảnh sau.
+    () => SPIRAL_ITEMS.map((item) => ({ ...item, alt: t.skills.galleryItems[item.labelIndex] })),
     [t.skills.galleryItems],
   );
 

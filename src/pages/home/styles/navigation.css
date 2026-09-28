@@ -6,7 +6,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
+  position: sticky;
+  top: 16px;
   z-index: 20;
   isolation: isolate;
   border: 1px solid rgba(255, 255, 255, 0.16);
@@ -192,6 +193,7 @@
     width: calc(100% - 32px);
     height: 52px;
     margin: 12px auto;
+    top: 12px;
     padding-left: 8px;
     padding-right: 5px;
   }

@@ -22,7 +22,7 @@ export default function Navigation({ menuOpen, setMenuOpen }) {
           <a href="#work" onClick={() => setMenuOpen(false)}>
             {t.navigation.projects}
           </a>
-          <a href="#about" onClick={() => setMenuOpen(false)}>
+          <a href="#about-me" onClick={() => setMenuOpen(false)}>
             {t.navigation.about}
           </a>
           <a href="#contact" onClick={() => setMenuOpen(false)}>
