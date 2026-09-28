@@ -66,7 +66,7 @@ export default function Lanyard({
     <div className="lanyard-container">
       <Canvas
         camera={{ position: position, fov: fov }}
-        dpr={[1, isMobile ? 1 : 1.1]}
+        dpr={[1, isMobile ? 1.15 : 1.35]}
         gl={{
           alpha: transparent,
           antialias: false,
@@ -233,7 +233,7 @@ function Band({
     const composite = new THREE.CanvasTexture(canvas);
     composite.colorSpace = THREE.SRGBColorSpace;
     composite.flipY = baseMap.flipY;
-    composite.anisotropy = 4;
+    composite.anisotropy = 16;
     composite.needsUpdate = true;
     return composite;
   }, [frontImage, backImage, imageFit, frontTex, backTex, materials.base.map]);
@@ -375,8 +375,8 @@ function Band({
             <mesh geometry={nodes.card.geometry}>
               <meshPhysicalMaterial
                 map={cardMap}
-                map-anisotropy={4}
-                clearcoat={isMobile ? 0 : 0.5}
+                map-anisotropy={16}
+                clearcoat={isMobile ? 0 : 1}
                 clearcoatRoughness={0.15}
                 roughness={0.9}
                 metalness={0.8}

@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import { Suspense, useEffect, useState } from "react";
 import Lanyard from "../../../components/lanyard/Lanyard";
 import TextType from "../../../components/text-type/TextType";
 import { useLanguage } from "../../../i18n/LanguageContext";
@@ -23,7 +24,7 @@ function DeferredLanyard({ isVisible }) {
     };
   }, [isVisible]);
 
-  if (!ready) return <div className="hero-visual__fallback" aria-hidden="true" />;
+  if (!isVisible || !ready) return <div className="hero-visual__fallback" aria-hidden="true" />;
   return <Suspense fallback={<div className="hero-visual__fallback" aria-hidden="true" />}><Lanyard position={[0, 0, 25]} gravity={[0, -40, 0]} frontImage="/assets/images/profile.png" backImage="/assets/images/profile.png" imageFit="center" lanyardWidth={1} /></Suspense>;
 }
 
@@ -70,16 +71,14 @@ export default function HeroSection({ isVisible = true }) {
         </div>
 
         <div className="hero-visual" aria-label={t.hero.profileLabel}>
-          {isVisible && (
-            <Lanyard
-              position={[0, 0, 25]}
-              gravity={[0, -40, 0]}
-              frontImage="/assets/images/profile.png"
-              backImage="/assets/images/profile.png"
-              imageFit="center"
-              lanyardWidth={1}
-            />
-          )}
+          <Lanyard
+            position={[0, 0, 25]}
+            gravity={[0, -40, 0]}
+            frontImage="/assets/images/profile.png"
+            backImage="/assets/images/profile.png"
+            imageFit="center"
+            lanyardWidth={1}
+          />
         </div>
       </div>
     </section>

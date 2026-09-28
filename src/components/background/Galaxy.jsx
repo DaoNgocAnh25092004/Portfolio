@@ -19,7 +19,7 @@ void main() {
 `;
 
 const fragmentShader = `
-precision mediump float;
+precision highp float;
 
 uniform float uTime;
 uniform vec3 uResolution;
@@ -42,7 +42,7 @@ uniform bool uTransparent;
 
 varying vec2 vUv;
 
-#define NUM_LAYER 1.0
+#define NUM_LAYER 3.0
 #define STAR_COLOR_CUTOFF 0.2
 #define MAT45 mat2(0.7071, -0.7071, 0.7071, 0.7071)
 #define PERIOD 3.0
@@ -223,8 +223,7 @@ export default function Galaxy({
     // Cáº­p nháº­t kÃ­ch thÆ°á»›c render theo vÃ¹ng chá»©a nhÆ°ng giá»¯ kÃ­ch thÆ°á»›c hiá»ƒn thá»‹ phá»§ kÃ­n viewport.
     function resize() {
       // Giáº£m sá»‘ pixel shader xá»­ lÃ½ Ä‘á»ƒ mÆ°á»£t hÆ¡n, sau Ä‘Ã³ Ã©p canvas hiá»ƒn thá»‹ láº¡i Ä‘Ãºng toÃ n bá»™ vÃ¹ng chá»©a.
-      // Gi?m d? phân gi?i n?i b? c?a shader d? GPU x? lý ít pixel hon mà canvas v?n ph? kín màn hình.
-      const scale = window.innerWidth < 768 ? 0.38 : 0.46;
+      const scale = window.innerWidth < 768 ? 0.55 : 0.7;
       const displayWidth = Math.max(1, ctn.offsetWidth);
       const displayHeight = Math.max(1, ctn.offsetHeight);
       const renderWidth = Math.max(1, Math.floor(displayWidth * scale));
@@ -293,7 +292,6 @@ export default function Galaxy({
 
     const mesh = new Mesh(gl, { geometry, program });
     let animateId;
-    let lastRenderTime = 0;
     // Cháº¡y render loop, lÃ m mÆ°á»£t chuá»™t rá»“i truyá»n tráº¡ng thÃ¡i má»›i vÃ o shader.
     function update(t) {
       animateId = requestAnimationFrame(update);
@@ -304,8 +302,9 @@ export default function Galaxy({
       }
 
       // Tá»a Ä‘á»™ chuá»™t cáº§n bÃ¡m ngay láº­p tá»©c; chá»‰ lÃ m mÆ°á»£t cÆ°á»ng Ä‘á»™ hiá»‡u á»©ng khi chuá»™t vÃ o/rá»i mÃ n hÃ¬nh.
+      // Chỉ tăng tốc vùng sáng bám theo chuột; các thông số nền và cường độ hiệu ứng vẫn giữ nguyên.
       const mousePositionLerpFactor = 1.0;
-      const mouseActiveLerpFactor = 0.12;
+      const mouseActiveLerpFactor = 0.05;
       smoothMousePos.current.x +=
         (targetMousePos.current.x - smoothMousePos.current.x) * mousePositionLerpFactor;
       smoothMousePos.current.y +=
