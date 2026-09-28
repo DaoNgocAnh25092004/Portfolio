@@ -4,9 +4,10 @@ import MobileNotice from "./components/MobileNotice";
 import HeroSection from "./sections/HeroSection";
 import AboutMeSection from "./sections/AboutMeSection";
 import ExperienceSection from "./sections/ExperienceSection";
+import ProjectsSection from "./sections/ProjectsSection";
 import AboutSection from "./sections/AboutSection";
 
-// Ghép các section của portfolio theo thứ tự giới thiệu, hồ sơ, kinh nghiệm và kỹ năng.
+// Ghép các section của portfolio theo thứ tự giới thiệu, hồ sơ, kinh nghiệm, kỹ năng và dự án.
 export default function HomePage({ isVisible = true }) {
   const [menuOpen, setMenuOpen] = useState(true);
 
@@ -20,6 +21,7 @@ export default function HomePage({ isVisible = true }) {
       <AboutMeSection />
       <ExperienceSection />
       <AboutSection />
+      <ProjectsSection />
       <MobileNotice />
     </main>
   );

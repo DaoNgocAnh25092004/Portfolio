@@ -56,7 +56,7 @@ export default function HeroSection({ isVisible = true }) {
               {t.hero.introAfter}
             </p>
             <div className="hero-actions">
-              <a className="hero-button hero-button-primary" href="#work">
+              <a className="hero-button hero-button-primary" href="#projects">
                 {t.hero.viewProjects} <ArrowUpRight size={17} />
               </a>
               <a

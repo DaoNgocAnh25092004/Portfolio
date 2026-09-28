@@ -120,9 +120,9 @@
 
 .experience-entry__eyebrow {
   margin: 0;
-  color: #9ca5a6;
-  font: 10px "DM Mono", monospace;
-  letter-spacing: 0.08em;
+  color: #e0e7e8;
+  font: 600 13px "DM Mono", monospace;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
@@ -221,14 +221,12 @@
 
 .experience-section--animated [data-experience-reveal] {
   opacity: 0;
-  filter: blur(7px);
   transform: translate3d(0, 22px, 0);
-  transition: opacity 680ms cubic-bezier(0.2, 0.75, 0.25, 1), filter 680ms cubic-bezier(0.2, 0.75, 0.25, 1), transform 680ms cubic-bezier(0.2, 0.75, 0.25, 1);
+  transition: opacity 680ms cubic-bezier(0.2, 0.75, 0.25, 1), transform 680ms cubic-bezier(0.2, 0.75, 0.25, 1);
 }
 
 .experience-section--animated [data-experience-reveal].is-visible {
   opacity: 1;
-  filter: blur(0);
   transform: translate3d(0, 0, 0);
 }
 
@@ -284,7 +282,6 @@
   .experience-section--animated [data-experience-reveal],
   .experience-section--animated [data-experience-reveal].is-visible {
     opacity: 1;
-    filter: none;
     transform: none;
     transition: none;
   }
