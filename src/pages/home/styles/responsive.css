@@ -168,14 +168,12 @@
   .hero-title-type--mobile {
     display: block;
     width: 100%;
-    font-size: clamp(14px, 3.7vw, 17px) !important;
     line-height: 1.08;
     white-space: pre-wrap;
   }
 
   .hero h1 > .hero-title-type--mobile .text-type__content,
   .hero h1 > .hero-title-type--mobile .text-type__cursor {
-    font-size: inherit !important;
     word-break: keep-all;
     overflow-wrap: normal;
   }
@@ -216,14 +214,12 @@
   .hero-title-type--mobile {
     display: block;
     width: 100%;
-    font-size: clamp(14px, 3.7vw, 17px) !important;
     line-height: 1.08;
     white-space: pre-wrap;
   }
 
   .hero h1 > .hero-title-type--mobile .text-type__content,
   .hero h1 > .hero-title-type--mobile .text-type__cursor {
-    font-size: inherit !important;
     word-break: keep-all;
     overflow-wrap: normal;
   }
