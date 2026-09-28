@@ -1,0 +1,419 @@
+/* Giữ desktop nguyên trạng và chỉ điều chỉnh bố cục cho tablet, mobile. */
+.hero-title-type--mobile {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .wrap {
+    width: calc(100% - 48px);
+  }
+
+  .experience-section__description,
+  .projects-section__description {
+    white-space: normal;
+  }
+
+  .about-me-section__description,
+  .about-section__description {
+    max-width: 100%;
+  }
+
+  .projects-featured {
+    gap: 20px;
+  }
+}
+
+/* Tablet dùng menu gọn và hero một cột để không ép nội dung vào hai cột hẹp. */
+@media (min-width: 701px) and (max-width: 900px) {
+  .nav {
+    width: calc(100% - 48px);
+    height: 58px;
+    margin: 14px auto;
+    top: 14px;
+    padding: 0 8px 0 14px;
+  }
+
+  .brand {
+    font-size: 18px;
+  }
+
+  .brand-mark {
+    width: 31px;
+    height: 31px;
+    flex-basis: 31px;
+  }
+
+  .language-toggle {
+    min-width: 58px;
+    height: 36px;
+    padding: 0 8px;
+  }
+
+  .nav-links {
+    position: static;
+    display: flex;
+    min-width: 0;
+    padding: 3px;
+    flex-direction: row;
+    align-items: center;
+    gap: 1px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.16);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 9px 8px;
+    font-size: 10px;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-bottom: 72px;
+  }
+
+  .hero-grid {
+    min-height: auto;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .hero-content {
+    max-width: 760px;
+    transform: none;
+  }
+
+  .hero h1 {
+    max-width: 760px;
+    font-size: clamp(42px, 7vw, 66px);
+  }
+
+  .hero-intro {
+    max-width: 650px;
+    font-size: 16px;
+  }
+
+  .hero-visual {
+    display: none;
+    height: min(58vw, 520px);
+    min-height: 400px;
+    margin-top: 0;
+  }
+
+  .scroll-cue {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    margin-top: 10px;
+  }
+
+  .about-me-section__education-topline,
+  .about-me-section__timeline-topline {
+    display: block;
+  }
+
+  .about-me-section__education-topline p,
+  .about-me-section__education-topline time,
+  .about-me-section__timeline-topline time {
+    display: block;
+    margin-top: 9px;
+    text-align: left;
+  }
+
+  .experience-entry__heading {
+    gap: 14px;
+  }
+
+  .experience-entry__content h3 {
+    font-size: clamp(21px, 3.2vw, 29px);
+  }
+
+  .about-section__layout {
+    gap: 48px;
+  }
+}
+
+/* Mobile ưu tiên một cột, vùng chạm đủ lớn và nội dung không vượt viewport. */
+/* iPad lớn vẫn dùng nội dung một cột khi nhận diện là thiết bị cảm ứng. */
+@media (pointer: coarse) and (max-width: 1100px) {
+  .hero {
+    min-height: auto;
+    padding-bottom: 72px;
+  }
+
+  .hero-grid {
+    min-height: auto;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero-content {
+    transform: none;
+  }
+
+  .hero-visual {
+    display: none;
+  }
+
+  .hero-title-type--desktop {
+    display: none;
+  }
+
+  .hero-title-type--mobile {
+    display: block;
+    width: 100%;
+    font-size: clamp(14px, 3.7vw, 17px) !important;
+    line-height: 1.08;
+    white-space: pre-wrap;
+  }
+
+  .hero h1 > .hero-title-type--mobile .text-type__content,
+  .hero h1 > .hero-title-type--mobile .text-type__cursor {
+    font-size: inherit !important;
+    word-break: keep-all;
+    overflow-wrap: normal;
+  }
+}
+
+@media (max-width: 700px) {
+  .wrap {
+    width: calc(100% - 32px);
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 40px;
+    padding-bottom: 20px;
+  }
+
+  .hero-content {
+    transform: none;
+  }
+
+  .hero-visual {
+    display: none;
+    height: clamp(360px, 72svh, 540px);
+    min-height: 360px;
+    margin-top: 18px;
+  }
+
+  .hero h1 {
+    max-width: 100%;
+    font-size: clamp(32px, 9vw, 52px);
+    line-height: 1.08;
+  }
+
+  .hero-title-type--desktop {
+    display: none;
+  }
+
+  .hero-title-type--mobile {
+    display: block;
+    width: 100%;
+    font-size: clamp(14px, 3.7vw, 17px) !important;
+    line-height: 1.08;
+    white-space: pre-wrap;
+  }
+
+  .hero h1 > .hero-title-type--mobile .text-type__content,
+  .hero h1 > .hero-title-type--mobile .text-type__cursor {
+    font-size: inherit !important;
+    word-break: keep-all;
+    overflow-wrap: normal;
+  }
+
+  .hero-intro,
+  .about-me-section__summary,
+  .about-section__description,
+  .experience-section__description,
+  .projects-section__description {
+    max-width: 100%;
+  }
+
+  .nav {
+    z-index: 50;
+    overflow: visible;
+  }
+
+  .nav-controls {
+    position: static;
+  }
+
+  .nav-links.open {
+    position: fixed;
+    z-index: 60;
+    top: 70px;
+    right: 16px;
+    display: grid;
+    width: min(250px, calc(100vw - 32px));
+    min-width: 0;
+    gap: 4px;
+    padding: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 22px;
+    background:
+      linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.16),
+        rgba(255, 255, 255, 0.035) 48%
+      ),
+      rgba(12, 12, 12, 0.9);
+    box-shadow:
+      0 22px 60px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(26px) saturate(145%);
+    -webkit-backdrop-filter: blur(26px) saturate(145%);
+  }
+
+  .nav-links.open::before {
+    position: absolute;
+    top: 1px;
+    right: 18%;
+    left: 18%;
+    height: 1px;
+    border-radius: 999px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.7),
+      transparent
+    );
+    content: "";
+  }
+
+  .nav-links.open a {
+    display: flex;
+    min-height: 44px;
+    align-items: center;
+    padding: 0 14px;
+    border: 1px solid transparent;
+    border-radius: 14px;
+    color: #b7c0c1;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+
+  .nav-links.open a:hover,
+  .nav-links.open a:focus-visible {
+    border-color: rgba(255, 255, 255, 0.16);
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    outline: none;
+  }
+
+  .menu-toggle {
+    cursor: pointer;
+  }
+
+  .about-me-section__summary {
+    font-size: 14px;
+    line-height: 1.72;
+  }
+
+  .about-me-section {
+    padding-top: 24px;
+    padding-bottom: 64px;
+  }
+
+  .about-me-section__layout {
+    margin-top: 34px;
+  }
+
+  .experience-section {
+    padding-bottom: 64px;
+  }
+
+  .experience-section__timeline {
+    margin-top: 28px;
+  }
+
+  .about-section {
+    padding-bottom: 64px;
+  }
+
+  .about-visual {
+    display: none;
+  }
+
+  .about-section__layout {
+    gap: 34px;
+    margin-top: 34px;
+  }
+
+  .projects-section {
+    padding-bottom: 64px;
+  }
+
+  .projects-featured {
+    margin-top: 20px;
+  }
+
+  .projects-features-heading {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr);
+    align-items: start;
+    gap: 10px;
+  }
+
+  .projects-features-heading__icon {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .projects-features-heading__copy {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .projects-features-heading__copy h3 {
+    font-size: 16px;
+  }
+
+  .projects-features-heading__count {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: start;
+    margin: 8px 0 0;
+    padding: 6px 8px;
+    font-size: 8px;
+  }
+
+  .about-me-section__academic-facts > div {
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 9px;
+  }
+
+  .about-me-section__academic-facts dd,
+  .about-me-section__contact-item strong {
+    font-size: 13px;
+  }
+
+  .experience-entry__highlights li,
+  .experience-entry__deployment p {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .projects-featured__actions {
+    gap: 8px;
+  }
+
+  .projects-featured__action {
+    max-width: 100%;
+  }
+
+  .project-card__content h3 {
+    font-size: 17px;
+  }
+
+  .project-card__content p {
+    font-size: 12.5px;
+  }
+}

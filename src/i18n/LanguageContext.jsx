@@ -35,7 +35,7 @@ const translations = {
     hero: {
       role: "Software Engineer",
       statements: [
-        "I am a Fullstack Developer.",
+        "I am a Fullstack Developer.",
         "I build scalable web products.",
         "I craft interfaces with React & Next.js.",
         "I architect APIs with Node.js & NestJS.",

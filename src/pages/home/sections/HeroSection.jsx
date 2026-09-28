@@ -39,8 +39,19 @@ export default function HeroSection({ isVisible = true }) {
           <div className="hero-kicker">Đào Ngọc Anh / {t.hero.role}</div>
           <h1>
             <TextType
-              key={language}
-              className="hero-title-type"
+              key={`${language}-desktop`}
+              className="hero-title-type hero-title-type--desktop"
+              text={t.hero.statements}
+              typingSpeed={72}
+              deletingSpeed={38}
+              pauseDuration={1800}
+              initialDelay={250}
+              showCursor
+              cursorCharacter="_"
+            />
+            <TextType
+              key={`${language}-mobile`}
+              className="hero-title-type hero-title-type--mobile"
               text={t.hero.statements}
               typingSpeed={72}
               deletingSpeed={38}

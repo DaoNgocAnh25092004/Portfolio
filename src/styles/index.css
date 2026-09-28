@@ -7,4 +7,5 @@
 @import "../pages/home/styles/about-me.css";
 @import "../pages/home/styles/experience.css";
 @import "../pages/home/styles/projects.css";
+@import "../pages/home/styles/responsive.css";
 @import "./intro.css";

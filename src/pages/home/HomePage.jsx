@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Navigation from "./components/Navigation";
-import MobileNotice from "./components/MobileNotice";
 import HeroSection from "./sections/HeroSection";
 import AboutMeSection from "./sections/AboutMeSection";
 import ExperienceSection from "./sections/ExperienceSection";
@@ -9,7 +8,7 @@ import AboutSection from "./sections/AboutSection";
 
 // Ghép các section của portfolio theo thứ tự giới thiệu, hồ sơ, kinh nghiệm, kỹ năng và dự án.
 export default function HomePage({ isVisible = true }) {
-  const [menuOpen, setMenuOpen] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <main
@@ -22,7 +21,6 @@ export default function HomePage({ isVisible = true }) {
       <ExperienceSection />
       <AboutSection />
       <ProjectsSection />
-      <MobileNotice />
     </main>
   );
 }
