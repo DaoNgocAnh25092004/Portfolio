@@ -19,14 +19,14 @@ export default function Navigation({ menuOpen, setMenuOpen }) {
       </a>
       <div className="nav-controls">
         <div className={`nav-links ${menuOpen ? "open" : ""}`}>
-          <a href="#work" onClick={() => setMenuOpen(false)}>
-            {t.navigation.projects}
-          </a>
           <a href="#about-me" onClick={() => setMenuOpen(false)}>
             {t.navigation.about}
           </a>
-          <a href="#contact" onClick={() => setMenuOpen(false)}>
-            {t.navigation.contact}
+          <a href="#experience" onClick={() => setMenuOpen(false)}>
+            {t.navigation.experience}
+          </a>
+          <a href="#about" onClick={() => setMenuOpen(false)}>
+            {t.navigation.skills}
           </a>
         </div>
         <LanguageToggle />

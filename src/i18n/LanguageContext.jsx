@@ -13,9 +13,9 @@ const translations = {
   en: {
     language: { switchTo: "Switch language to Vietnamese", code: "VI" },
     navigation: {
-      projects: "Projects",
+      experience: "Experience",
       about: "About me",
-      contact: "Contact",
+      skills: "Skills",
       openMenu: "Open menu",
       closeMenu: "Close menu",
     },
@@ -80,6 +80,49 @@ const translations = {
           "Scholarship for outstanding academic achievement (2023 – 2026)",
       },
     },
+    experience: {
+      eyebrow: "WORK / EXPERIENCE",
+      titleFirst: "Experience",
+      titleAccent: "in Practice",
+      description: "Building reliable web products, backend services, and scalable systems for real-world workflows.",
+      ariaLabel: "Professional experience",
+      company: "STS – Sustainable Textile Solutions Vietnam",
+      role: "Fullstack Developer",
+      period: "05/2025 – 06/2026",
+      technologiesLabel: "Technologies used",
+      technologies: [
+        "React",
+        "TypeScript",
+        "Redux Toolkit",
+        "NestJS",
+        "PostgreSQL",
+        "Prisma ORM",
+        "Redis",
+        "Docker",
+        "Nginx",
+        "GitHub Actions",
+      ],
+      highlights: [
+        {
+          title: "SaaS / ERP workflows.",
+          description: "Built and branded textile business workflows with React, TypeScript, Redux Toolkit, Tailwind CSS, NestJS, PostgreSQL, and Prisma ORM, replacing spreadsheet-heavy processes with a centralized system.",
+        },
+        {
+          title: "Fabric pricing logic.",
+          description: "Implemented configurable fabric pricing logic based on material composition, GSM, fabric width, construction factors, processing rules, and margins, supporting reusable catalog and quotation workflows.",
+        },
+        {
+          title: "SePay payment and billing.",
+          description: "Integrated SePay payment webhooks and credit-based billing with NestJS, Prisma ORM, and PostgreSQL to automate payment verification, reconciliation, refunds, and transaction history.",
+        },
+        {
+          title: "Security.",
+          description: "Implemented JWT, Google OAuth, RBAC, CSRF protection, and permission-based guards for safer admin and user workflows.",
+        },
+      ],
+      deploymentTitle: "VPS deployment",
+      deploymentDescription: "Deployed the system on a VPS, containerized services with Docker Compose, routed traffic through Nginx, and automated releases with GitHub Actions CI/CD.",
+    },
     skills: {
       titleFirst: "Technical",
       titleAccent: "Skills",
@@ -130,9 +173,9 @@ const translations = {
   vi: {
     language: { switchTo: "Chuyển sang tiếng Anh", code: "EN" },
     navigation: {
-      projects: "Dự án",
+      experience: "Kinh nghiệm",
       about: "Giới thiệu",
-      contact: "Liên hệ",
+      skills: "Kỹ năng",
       openMenu: "Mở menu",
       closeMenu: "Đóng menu",
     },
@@ -195,6 +238,49 @@ const translations = {
         awardsLabel: "Thành tích",
         awards: "Học bổng khuyến khích học tập (2023 – 2026)",
       },
+    },
+    experience: {
+      eyebrow: "CÔNG VIỆC / KINH NGHIỆM",
+      titleFirst: "Kinh nghiệm",
+      titleAccent: "thực tế",
+      description: "Xây dựng sản phẩm web đáng tin cậy, dịch vụ backend và hệ thống có khả năng mở rộng cho quy trình thực tế.",
+      ariaLabel: "Kinh nghiệm làm việc",
+      company: "STS – Sustainable Textile Solutions Vietnam",
+      role: "Lập trình viên Fullstack",
+      period: "05/2025 – 06/2026",
+      technologiesLabel: "Công nghệ sử dụng",
+      technologies: [
+        "React",
+        "TypeScript",
+        "Redux Toolkit",
+        "NestJS",
+        "PostgreSQL",
+        "Prisma ORM",
+        "Redis",
+        "Docker",
+        "Nginx",
+        "GitHub Actions",
+      ],
+      highlights: [
+        {
+          title: "Workflow SaaS / ERP.",
+          description: "Xây dựng và phát triển workflow cho doanh nghiệp dệt may bằng React, TypeScript, Redux Toolkit, Tailwind CSS, NestJS, PostgreSQL và Prisma ORM, thay thế quy trình phụ thuộc nhiều vào spreadsheet bằng một hệ thống tập trung.",
+        },
+        {
+          title: "Hiện thực logic tính giá vải.",
+          description: "Hiện thực logic tính giá vải có thể cấu hình theo thành phần nguyên liệu, GSM, khổ vải, yếu tố cấu trúc, quy tắc xử lý và biên lợi nhuận, hỗ trợ tái sử dụng catalog và quy trình báo giá.",
+        },
+        {
+          title: "Thanh toán qua SePay.",
+          description: "Tích hợp webhook thanh toán SePay và billing theo credit với NestJS, Prisma ORM và PostgreSQL để tự động xác minh, đối soát, hoàn tiền và lưu lịch sử giao dịch.",
+        },
+        {
+          title: "Bảo mật.",
+          description: "Triển khai JWT, Google OAuth, RBAC, bảo vệ CSRF và permission guard cho các workflow quản trị và người dùng an toàn hơn.",
+        },
+      ],
+      deploymentTitle: "Triển khai trên VPS",
+      deploymentDescription: "Triển khai hệ thống trên VPS, đóng gói service bằng Docker Compose, định tuyến traffic qua Nginx và tự động hóa quá trình release bằng GitHub Actions CI/CD.",
     },
     skills: {
       titleFirst: "Kỹ năng",
