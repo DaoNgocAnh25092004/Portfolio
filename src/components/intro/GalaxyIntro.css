@@ -35,8 +35,6 @@
   justify-content: center;
   padding: 24px;
   background: rgba(3, 3, 3, 0.42);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
 }
 
 .galaxy-intro__gate-card {

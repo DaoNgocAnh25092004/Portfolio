@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import Lenis from "lenis";
 import "lenis/dist/lenis.css";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import GalaxyBackground from "./components/background/GalaxyBackground";
 import GalaxyIntro from "./components/intro/GalaxyIntro";
 import HomePage from "./pages/home/HomePage";
@@ -20,17 +18,21 @@ function PortfolioApp() {
       // Giữ cuộn mượt theo yêu cầu kể cả khi trình duyệt báo giảm chuyển động.
       respectReducedMotion: false,
     });
-    const updateLenis = (time) => lenis.raf(time * 1000);
-    const updateScrollTrigger = () => ScrollTrigger.update();
+    let frameId;
+    let lastTime = 0;
 
-    lenis.on("scroll", updateScrollTrigger);
-    gsap.ticker.add(updateLenis);
-    gsap.ticker.lagSmoothing(0);
+    // Dùng một RAF riêng cho Lenis để bỏ ticker GSAP không cần thiết trong toàn bộ trang.
+    const updateLenis = (time) => {
+      if (time - lastTime >= 16) {
+        lastTime = time;
+        lenis.raf(time);
+      }
+      frameId = window.requestAnimationFrame(updateLenis);
+    };
+    frameId = window.requestAnimationFrame(updateLenis);
 
     return () => {
-      lenis.off("scroll", updateScrollTrigger);
-      gsap.ticker.remove(updateLenis);
-      gsap.ticker.lagSmoothing(500, 33);
+      window.cancelAnimationFrame(frameId);
       lenis.destroy();
     };
   }, []);

@@ -4,7 +4,8 @@ import TextType from "../../../components/text-type/TextType";
 import { useLanguage } from "../../../i18n/LanguageContext";
 
 // Tạo hero hai cột với thông tin thật của Đào Ngọc Anh và thẻ lanyard 3D tương tác.
-export default function HeroSection() {
+// Chỉ tạo canvas lanyard khi Home đã hiển thị, tránh chạy WebGL ẩn bên dưới intro.
+export default function HeroSection({ isVisible = true }) {
   const { language, t } = useLanguage();
 
   return (
@@ -47,14 +48,16 @@ export default function HeroSection() {
         </div>
 
         <div className="hero-visual" aria-label={t.hero.profileLabel}>
-          <Lanyard
-            position={[0, 0, 25]}
-            gravity={[0, -40, 0]}
-            frontImage="/assets/images/profile.png"
-            backImage="/assets/images/profile.png"
-            imageFit="center"
-            lanyardWidth={1}
-          />
+          {isVisible && (
+            <Lanyard
+              position={[0, 0, 25]}
+              gravity={[0, -40, 0]}
+              frontImage="/assets/images/profile.png"
+              backImage="/assets/images/profile.png"
+              imageFit="center"
+              lanyardWidth={1}
+            />
+          )}
         </div>
       </div>
     </section>

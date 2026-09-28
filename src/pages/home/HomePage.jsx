@@ -14,7 +14,7 @@ export default function HomePage({ isVisible = true }) {
       aria-hidden={!isVisible}
     >
       <Navigation menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-      <HeroSection />
+      <HeroSection isVisible={isVisible} />
       <AboutSection />
       <MobileNotice />
     </main>

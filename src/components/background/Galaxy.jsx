@@ -292,7 +292,6 @@ export default function Galaxy({
 
     const mesh = new Mesh(gl, { geometry, program });
     let animateId;
-
     // Chạy render loop, làm mượt chuột rồi truyền trạng thái mới vào shader.
     function update(t) {
       animateId = requestAnimationFrame(update);
@@ -302,14 +301,16 @@ export default function Galaxy({
         program.uniforms.uStarSpeed.value = (t * 0.001 * starSpeed) / 10.0;
       }
 
-      const lerpFactor = 0.05;
+      // Tọa độ chuột cần bám ngay lập tức; chỉ làm mượt cường độ hiệu ứng khi chuột vào/rời màn hình.
+      const mousePositionLerpFactor = 1.0;
+      const mouseActiveLerpFactor = 0.12;
       smoothMousePos.current.x +=
-        (targetMousePos.current.x - smoothMousePos.current.x) * lerpFactor;
+        (targetMousePos.current.x - smoothMousePos.current.x) * mousePositionLerpFactor;
       smoothMousePos.current.y +=
-        (targetMousePos.current.y - smoothMousePos.current.y) * lerpFactor;
+        (targetMousePos.current.y - smoothMousePos.current.y) * mousePositionLerpFactor;
 
       smoothMouseActive.current +=
-        (targetMouseActive.current - smoothMouseActive.current) * lerpFactor;
+        (targetMouseActive.current - smoothMouseActive.current) * mouseActiveLerpFactor;
 
       program.uniforms.uMouse.value[0] = smoothMousePos.current.x;
       program.uniforms.uMouse.value[1] = smoothMousePos.current.y;
