@@ -47,7 +47,7 @@ const translations = {
         "I turn ideas into production-ready systems.",
       ],
       introBefore: "Fullstack Developer with",
-      experience: "1+ year of experience",
+      experience: "1 year and 10 months of experience",
       introAfter:
         "building scalable web applications and event-driven systems. Proficient in React, Next.js, Node.js, NestJS, PostgreSQL, Redis and Kafka, with hands-on experience integrating OpenAI/GenAI APIs, RAG pipelines, vector databases and AI agents.",
       viewProjects: "View projects",
@@ -105,7 +105,7 @@ const translations = {
       ariaLabel: "Professional experience",
       company: "STS – Sustainable Textile Solutions Vietnam",
       role: "Fullstack Developer",
-      period: "05/2025 – 06/2026",
+      period: "11/2024 – 09/2026",
       technologiesLabel: "Technologies used",
       technologies: [
         "React",
@@ -281,7 +281,7 @@ const translations = {
         "Tôi biến ý tưởng thành sản phẩm sẵn sàng vận hành.",
       ],
       introBefore: "Lập trình viên Full-stack với",
-      experience: "hơn 1 năm kinh nghiệm",
+      experience: "1 năm 10 tháng kinh nghiệm",
       introAfter:
         "xây dựng ứng dụng web có khả năng mở rộng và hệ thống xử lý sự kiện. Thành thạo React, Next.js, Node.js, NestJS, PostgreSQL, Redis và Kafka; có kinh nghiệm tích hợp OpenAI/GenAI API, quy trình RAG, cơ sở dữ liệu vector và AI agent.",
       viewProjects: "Xem dự án",
@@ -338,7 +338,7 @@ const translations = {
       ariaLabel: "Kinh nghiệm làm việc",
       company: "STS – Sustainable Textile Solutions Vietnam",
       role: "Lập trình viên Fullstack",
-      period: "05/2025 – 06/2026",
+      period: "11/2024 – 09/2026",
       technologiesLabel: "Công nghệ sử dụng",
       technologies: [
         "React",
